@@ -34,10 +34,12 @@
                            <td>'.$row['menu_item_id'].'</td>
                            <td>'.$row['menu_item_name'].'</td>
                            <td>'.$row['menu_item_order'].'</td>
-                           <td class="text-center"><div class="btn-group" role="group" aria-label="Basic example">
-                           <button type="button" class="btn btn-success btn-lg">Edit</button>
-                           <button type="button" class="btn btn-danger btn-lg ">Delete</button>
-                         </div></td>
+                           <td class="text-center ">
+                           <div class="btn-group mt-3">
+                              <a href="add_menu.php?get_menu_id='.$row['menu_item_id'].'"  class="btn btn-warning  mr-2"><i class="fa fa-pencil "></i> </a>
+                              <a href=""  class="btn btn-danger  mr-2"><i class="fa fa-trash "></i> </a>
+                           </div>
+                       </td>
                          </tr> ';
                         }
                     ?>

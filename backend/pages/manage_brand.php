@@ -3,11 +3,11 @@
     include 'header.php';
     include 'sidebar.php';
     $message_delete="";
-    if (isset($_REQUEST['item_del_id'])) {
-        echo $item_del_id=$_REQUEST['item_del_id'];
-        $del_img=$conn->query("SELECT item_image FROM item WHERE item_id='".$_REQUEST['item_del_id']."'")->fetch_assoc();
-        unlink("images/products/".$del_img['item_image']);
-        $brand_delete="DELETE FROM item WHERE item_id=$item_del_id";
+    if (isset($_REQUEST['brand_del_id'])) {
+        echo $brand_del_id=$_REQUEST['brand_del_id'];
+        $del_img=$conn->query("SELECT brand_logo FROM brand WHERE brand_id='".$_REQUEST['brand_del_id']."'")->fetch_assoc();
+        unlink("images/brands/".$del_img['brand_logo']);
+        $brand_delete="DELETE FROM brand WHERE brand_id=$brand_del_id";
         if ($conn->query($brand_delete)===TRUE) {
             $message_delete='<div class="alert alert-success alert-dismissible fade show">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -23,11 +23,11 @@
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-dashboard"></i> Manage Product</h1>
+          <h1><i class="fa fa-dashboard"></i> Manage Brand</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#">Manage Product</a></li>
+          <li class="breadcrumb-item"><a href="#">Manage Brand</a></li>
         </ul>
       </div>
       <div class="tile">
@@ -40,27 +40,25 @@
                   <thead>
                     <tr>
                       <th>Id</th>
-                      <th>Product Name</th>
-                      <th>Price</th>
-                      <th>Image</th>
-                      <th>Detial</th>
+                      <th>Brand Name</th>
+                      <th>Brand Logo</th>
+                      <th>Brand Order</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php
-                        $select_item="SELECT*FROM item";
-                        $result=$conn->query($select_item);
+                        $select_brand="SELECT*FROM brand";
+                        $result=$conn->query($select_brand);
                         while ($row=$result->fetch_assoc()) {
                            echo' <tr>
-                           <td>'.$row['item_id'].'</td>
-                           <td>'.$row['item_name'].'</td>
-                           <td>'.$row['item_price'].'</td>
-                           <td class="text-center"><img  src="images/products/'.$row['item_image'].'" class="img-thumbnail" width="60" height="60"></td>
-                           <td>'.$row['item_detail'].'</td>
+                           <td>'.$row['brand_id'].'</td>
+                           <td>'.$row['brand_name'].'</td>
+                           <td class="text-center"><img  src="images/brands/'.$row['brand_logo'].'" class="img-thumbnail" width="60" height="60"></td>
+                           <td>'.$row['brand_order'].'</td>
                            <td><div class="btn-group" role="group" aria-label="Basic example">
-                           <a href="add_product.php?get_product='.$row['item_id'].'"  class="btn btn-warning  mr-2"><i class="fa fa-pencil "></i></a>
-                           <button style="cursor:pointer;" class="btn btn-danger mr-2" data-href="manage_product.php?item_del_id='.$row['item_id'].'" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></button>
+                           <a href="add_brand.php?get_brand_id='.$row['brand_id'].'"  class="btn btn-warning  mr-2"><i class="fa fa-pencil "></i></a>
+                           <button style="cursor:pointer;" class="btn btn-danger mr-2" data-href="manage_brand.php?brand_del_id='.$row['brand_id'].'" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></button>
                          </div></td>
                          </tr> ';
                         }
@@ -70,7 +68,8 @@
               </div>
             </div>
           </div>
-          <!--Modal Delet staff-->
+<!-- The Modal -->
+   <!--Modal Delet staff-->
         <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
              <div class="modal-dialog">
             <div class="modal-content">
@@ -89,4 +88,3 @@
     </main>
     <?php
      include 'footer.php';
-    ?>
