@@ -1,3 +1,6 @@
+<?php
+include '../backend/pages/conn.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,11 +49,15 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about" class="page-scroll">About</a></li>
-        <li><a href="#restaurant-menu" class="page-scroll">Menu</a></li>
-        <li><a href="#portfolio" class="page-scroll">Gallery</a></li>
-        <li><a href="#team" class="page-scroll">Chefs</a></li>
-        <li><a href="#call-reservation" class="page-scroll">Contact</a></li>
+        <li><a href="#about" class="page-scroll">Home</a>
+        </li>
+        <?php
+        $select_menu="SELECT*FROM menu_item ORDER BY menu_item_order DESC";
+        $result=$conn->query($select_menu);
+        while ($row=$result->fetch_assoc()) {
+          echo '<li><a href="" ">'.$row['menu_item_name'].'</a></li>';
+        }
+        ?>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 

@@ -60,7 +60,7 @@
                            <td>'.$row['item_detail'].'</td>
                            <td><div class="btn-group" role="group" aria-label="Basic example">
                            <a href="add_product.php?get_product='.$row['item_id'].'"  class="btn btn-warning  mr-2"><i class="fa fa-pencil "></i></a>
-                           <button style="cursor:pointer;" class="btn btn-danger mr-2" data-href="manage_product.php?item_del_id='.$row['item_id'].'" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></button>
+                           <button style="cursor:pointer;" class="btn btn-danger mr-2" data-href="add_product.php?item_del_id='.$row['item_id'].'" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></button>
                          </div></td>
                          </tr> ';
                         }
