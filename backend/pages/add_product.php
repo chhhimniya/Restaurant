@@ -36,7 +36,7 @@
           }
           else {
             if(!empty($image)){
-              $insert_item=mysqli_query($conn,"INSERT INTO item(item_name,item_price,item_image,item_detail) VALUES('$product_name','$product_price','$image','$detail')");
+              $insert_item=mysqli_query($conn,"INSERT INTO item(item_name,item_price,item_image,item_detail,cate_brand_id) VALUES('$product_name','$product_price','$image','$detail',0)");
               move_uploaded_file( $imagetyp,'images/products/'.$image);
             }
             else {
@@ -126,6 +126,19 @@
                   ?>"
                   >
                   <?php echo "<p class='note'>".$msg_persons."</p>";?>
+                </div>
+                <label class="control-label">Category</label>
+                <div class="form-group">
+                <select class="form-control" id="category"> 
+              <option value="0"> All Category </option>
+              <?php
+                  // $stCat = "SELECT * FROM `category`";
+                  // $qrCat = $conn->query($stCat);
+                  // while($rowCat = $qrCat->fetch_assoc()){
+                  //   echo '<option value="'.$rowCat['cate_id'].'" '.selected.'>'.$rowCat['cate_name'].'</option>';
+                  // }
+              ?>
+             </select>
                 </div>
                 <div class="form-group">
                   <div class="control-label">Image</div>

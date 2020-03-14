@@ -3,4 +3,5 @@
     if (!$conn==TRUE) {
         die('Connection is not successful');
     }
+    $i=1;
 ?>

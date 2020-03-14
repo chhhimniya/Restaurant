@@ -39,7 +39,7 @@
                 <table class="table table-hover table-bordered" id="sampleTable">
                   <thead>
                     <tr>
-                      <th>Id</th>
+                      <th>No</th>
                       <th>Brand Name</th>
                       <th>Brand Logo</th>
                       <th>Brand Order</th>
@@ -50,9 +50,10 @@
                     <?php
                         $select_brand="SELECT*FROM brand";
                         $result=$conn->query($select_brand);
+                        $i=1;
                         while ($row=$result->fetch_assoc()) {
                            echo' <tr>
-                           <td>'.$row['brand_id'].'</td>
+                           <td>'.$i.'</td>
                            <td>'.$row['brand_name'].'</td>
                            <td class="text-center"><img  src="images/brands/'.$row['brand_logo'].'" class="img-thumbnail" width="60" height="60"></td>
                            <td>'.$row['brand_order'].'</td>
@@ -61,6 +62,7 @@
                            <button style="cursor:pointer;" class="btn btn-danger mr-2" data-href="manage_brand.php?brand_del_id='.$row['brand_id'].'" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></button>
                          </div></td>
                          </tr> ';
+                         $i++;
                         }
                     ?>
                   </tbody>
