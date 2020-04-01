@@ -19,10 +19,18 @@
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Product</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="add_product.php"><i class="icon fa fa-circle-o"></i>Add Product</a></li>
-            <li><a class="treeview-item" href="manage_product.php"><i class="icon fa fa-circle-o"></i>Manage Product</a></li>
+            <li>
+                <?php
+              $stCat = "SELECT * FROM `category` order by cate_id asc";
+              $qrCat = $conn->query($stCat);
+              while($rowCat = $qrCat->fetch_assoc()){
+                echo '<a  class="treeview-item" href="add_product.php?get_cate_id='.$rowCat['cate_id'].'"> '.$rowCat['cate_name'].' </a>';
+              }
+              ?>
+             </li>
           </ul>
         </li>
+        <li><a class="treeview-item" href="manage_product.php"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Product List</span></a></li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Brand</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="add_brand.php"><i class="icon fa fa-circle-o"></i>New Brand</a></li>

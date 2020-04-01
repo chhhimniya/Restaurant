@@ -2,6 +2,10 @@
     include 'conn.php';
     include 'header.php';
     include 'sidebar.php';
+
+  if (isset($_REQUEST['get_cate_id'])) {
+    $get_cate_id=$_REQUEST['get_cate_id'];
+  }
 ?>
 <main class="app-content">
       <!-- <div class="app-title">
@@ -24,6 +28,7 @@
              $image=$_FILES['image']['name'];
               $imagetyp=$_FILES['image']['tmp_name'];
             $detail=$_REQUEST['detail'];
+            $cate_brand_id=$_REQUEST['brand_name'];
            
           //checking name
           if(empty($_POST['product_name']))
@@ -36,11 +41,11 @@
           }
           else {
             if(!empty($image)){
-              $insert_item=mysqli_query($conn,"INSERT INTO item(item_name,item_price,item_image,item_detail,cate_brand_id) VALUES('$product_name','$product_price','$image','$detail',0)");
+              $insert_item=mysqli_query($conn,"INSERT INTO item(item_name,item_price,item_image,item_detail,cate_brand_id) VALUES('$product_name','$product_price','$image','$detail','$cate_brand_id')");
               move_uploaded_file( $imagetyp,'images/products/'.$image);
             }
             else {
-              $insert_item=mysqli_query($conn,"INSERT INTO item(item_name,item_price,item_detail) VALUES('$product_name','$product_price','$detail')");
+              $insert_item=mysqli_query($conn,"INSERT INTO item(item_name,item_price,item_detail,cate_brand_id) VALUES('$product_name','$product_price','$detail','$cate_brand_id')");
             }
               if ($insert_item=== TRUE) {
                 $message='<div class="alert alert-success alert-dismissible">
@@ -65,13 +70,14 @@
               $image=$_FILES['image']['name'];
               $imagetyp=$_FILES['image']['tmp_name'];
               $detail=$_REQUEST['detail'];
+               $cate_brand_id=$_REQUEST['brand_name'];
               // $stNewImg = date("Y_m_d_h_i_s_").$image;
               if (!empty($image)) {
-                $update_product="UPDATE item SET item_name='$product_name',item_price='$product_price',item_image='$image',item_detail='$detail' WHERE item_id=$get_product";
+                $update_product="UPDATE item SET item_name='$product_name',item_price='$product_price',item_image='$image',item_detail='$detail',cate_brand_id='$cate_brand_id' WHERE item_id=$get_product";
                 move_uploaded_file( $imagetyp, "images/products/".$image);
               }
               else {
-                $update_product="UPDATE item SET item_name='$product_name',item_price='$product_price',item_detail='$detail' WHERE item_id=$get_product";
+                $update_product="UPDATE item SET item_name='$product_name',item_price='$product_price',item_detail='$detail',cate_brand_id='$cate_brand_id' WHERE item_id=$get_product";
               }
               if ($conn->query($update_product) == TRUE) {
                 $message='<div class="alert alert-success alert-dismissible fade show">
@@ -91,7 +97,7 @@
             $rowselect=($result->fetch_assoc());
           }
           else {
-            $rowselect=array('item_name'=>'','item_price'=>'','item_image'=>'','item_detail'=>'');
+            $rowselect=array('item_name'=>'','item_price'=>'','item_image'=>'','item_detail'=>'','cate_brand_id'=>'');
           }
         ?>
       <?php
@@ -127,17 +133,24 @@
                   >
                   <?php echo "<p class='note'>".$msg_persons."</p>";?>
                 </div>
-                <label class="control-label">Category</label>
+                <label class="control-label">Brand</label>
                 <div class="form-group">
-                <select class="form-control" id="category"> 
-              <option value="0"> All Category </option>
+                <select class="form-control" name="brand_name"> 
+              <option value="0"> Choose </option>
               <?php
-                  // $stCat = "SELECT * FROM `category`";
-                  // $qrCat = $conn->query($stCat);
-                  // while($rowCat = $qrCat->fetch_assoc()){
-                  //   echo '<option value="'.$rowCat['cate_id'].'" '.selected.'>'.$rowCat['cate_name'].'</option>';
-                  // }
-              ?>
+                if(isset($_REQUEST['get_cate_id'])){
+                  $stBrand = "SELECT cate_brand.*, brand.brand_name FROM `cate_brand` INNER JOIN brand ON brand.cate_brand_id=cate_brand.cate_brand_id WHERE cate_id=$get_cate_id";
+                  $qrBrand = $conn->query($stBrand);
+                  while($rowBrand = $qrBrand->fetch_assoc()){
+                    if($frm['brand_id']==$rowBrand['brand_id']) $selected = 'selected';
+                    else $selected='';
+                    echo '<option value="'.$rowBrand['cate_brand_id'].'" '.$selected.'> '.$rowBrand['brand_name'].' </option>';
+                  }
+                }
+                else{
+                  echo '<option value=""> Please Choose Product </option>';
+                }
+          ?>
              </select>
                 </div>
                 <div class="form-group">
