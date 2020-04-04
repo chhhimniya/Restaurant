@@ -3,9 +3,6 @@
     include 'header.php';
     include 'sidebar.php';
 
-  if (isset($_REQUEST['get_cate_id'])) {
-    $get_cate_id=$_REQUEST['get_cate_id'];
-  }
 ?>
 <main class="app-content">
       <!-- <div class="app-title">
@@ -137,20 +134,19 @@
                 <div class="form-group">
                 <select class="form-control" name="brand_name"> 
               <option value="0"> Choose </option>
-              <?php
-                if(isset($_REQUEST['get_cate_id'])){
-                  $stBrand = "SELECT cate_brand.*, brand.brand_name FROM `cate_brand` INNER JOIN brand ON brand.cate_brand_id=cate_brand.cate_brand_id WHERE cate_id=$get_cate_id";
-                  $qrBrand = $conn->query($stBrand);
-                  while($rowBrand = $qrBrand->fetch_assoc()){
-                    if($frm['brand_id']==$rowBrand['brand_id']) $selected = 'selected';
-                    else $selected='';
-                    echo '<option value="'.$rowBrand['cate_brand_id'].'" '.$selected.'> '.$rowBrand['brand_name'].' </option>';
-                  }
+                <?php
+
+                if (isset($_REQUEST['get_cate_id'])) {
+                  $get_cate_id=$_REQUEST['get_cate_id'];
+                   $stBrand = "SELECT cate_brand.*, brand.brand_name FROM `cate_brand` INNER JOIN brand ON brand.brand_id=cate_brand.brand_id WHERE cate_id=$get_cate_id";
+                    $qrBrand = $conn->query($stBrand);
+                while($rowBrand = $qrBrand->fetch_assoc()){
+                  if($frm['brand_id']==$rowBrand['brand_id']) $selected = 'selected';
+                  else $selected='';
+                  echo '<option value="'.$rowBrand['cate_brand_id'].'" '.$selected.'> '.$rowBrand['brand_name'].' </option>';
                 }
-                else{
-                  echo '<option value=""> Please Choose Product </option>';
-                }
-          ?>
+              }
+                ?>
              </select>
                 </div>
                 <div class="form-group">
@@ -176,7 +172,7 @@
                 }
                 else {
                   echo'<button class="btn btn-warning" type="submit" name="btn_edit_product"><i class="fa fa-fw fa-lg fa-check-circle"></i>Edit Product</button>
-                  <a href="add_product.php" class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Product</a>
+                  <a href="manage_product.php" class="btn btn-danger" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Cancel</a>
                   ';
                 }
               ?>

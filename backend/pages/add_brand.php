@@ -131,7 +131,7 @@
                   }
                   else {
                     echo '<button class="btn btn-success" type="submit" name="btn_edit_brand"><i class="fa fa-fw fa-lg fa-check-circle"></i>Edit Brand</button>
-                    <button class="btn btn-warning" type="submit" data-href="add_brand.php"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Brand</button>
+                    <a class="btn btn-danger" type="submit" href="manage_brand.php"><i class="fa fa-fw fa-lg fa-check-circle"></i>Cancel</a>
                     ';
                   }
                 ?>

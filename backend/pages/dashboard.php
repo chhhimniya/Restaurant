@@ -18,7 +18,7 @@
         <div class="col-md-6 col-lg-3">
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
             <div class="info">
-              <h2>User</h2>
+              <h2>Users</h2>
                <h3>
                  <?php
                     $query = "SELECT*FROM admin"; 
@@ -52,7 +52,7 @@
         <div class="col-md-6 col-lg-3">
           <div class="widget-small warning coloured-icon"><i class="icon fa fa-files-o fa-3x"></i>
             <div class="info">
-              <h2>Brand</h2>
+              <h2>Brands</h2>
                <h3>
                  <?php
                     $query = "SELECT*FROM brand"; 
@@ -69,7 +69,7 @@
         <div class="col-md-6 col-lg-3">
           <div class="widget-small danger coloured-icon"><i class="icon fa fa-star fa-3x"></i>
             <div class="info">
-              <h2>category</h2>
+              <h2>categories</h2>
               <h3>
                  <?php
                     $query = "SELECT*FROM category"; 

@@ -57,10 +57,10 @@
                            <td>'.$row['brand_name'].'</td>
                            <td class="text-center"><img  src="images/brands/'.$row['brand_logo'].'" class="img-thumbnail" width="60" height="60"></td>
                            <td>'.$row['brand_order'].'</td>
-                           <td><div class="btn-group" role="group" aria-label="Basic example">
-                           <a href="add_brand.php?get_brand_id='.$row['brand_id'].'"  class="btn btn-warning  mr-2"><i class="fa fa-pencil "></i></a>
-                           <button style="cursor:pointer;" class="btn btn-danger mr-2" data-href="manage_brand.php?brand_del_id='.$row['brand_id'].'" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></button>
-                         </div></td>
+                           <td>
+                           <a href="add_brand.php?get_brand_id='.$row['brand_id'].'"  class="btn btn-success">Edit</a>
+                           <button style="cursor:pointer;" class="btn btn-danger" data-href="manage_brand.php?brand_del_id='.$row['brand_id'].'" data-toggle="modal" data-target="#confirm-delete">Delete</button>
+                      </td>
                          </tr> ';
                          $i++;
                         }
