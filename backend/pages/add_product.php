@@ -77,13 +77,13 @@
                 $update_product="UPDATE item SET item_name='$product_name',item_price='$product_price',item_detail='$detail',cate_brand_id='$cate_brand_id' WHERE item_id=$get_product";
               }
               if ($conn->query($update_product) == TRUE) {
-                $message='<div class="alert alert-success alert-dismissible fade show">
+                $message='<div class="alert alert-success alert-dismissible fade show" id="vsFadeOffUpdate">
                   <button type="button" class="close" data-dismiss="alert">&times;</button>
                  <strong><i class="fa fa-check-circle"></i></strong>Your data  has been updated.
                  </div>';
             }
             else{
-                $message='<div class="alert alert-danger alert-dismissible fade show">
+                $message='<div class="alert alert-danger alert-dismissible fade show" id="vsFadeOffUpdate">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
              <strong><i class="fa fa-times"></i></strong>Your data  has not been updated.
              </div>';
@@ -157,7 +157,7 @@
                 </div>
                 <div class="form-group" >
                 <label class="control-label">Details</label>
-                  <textarea name="detail" id=""  cols="30" rows="6" class="form-control" placeholder="Detials" name="detail"
+                  <textarea name="detail" cols="30" rows="6" class="form-control" placeholder="Detials" 
                   value="<?php
                       echo $rowselect['item_detail'];
                   ?>"
@@ -172,7 +172,7 @@
                 }
                 else {
                   echo'<button class="btn btn-warning" type="submit" name="btn_edit_product"><i class="fa fa-fw fa-lg fa-check-circle"></i>Edit Product</button>
-                  <a href="manage_product.php" class="btn btn-danger" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Cancel</a>
+                  <a href="manage_product.php" class="btn btn-danger" type="submit"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
                   ';
                 }
               ?>

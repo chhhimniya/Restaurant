@@ -98,10 +98,14 @@
                 <div class="tile-footer">
               <?php
                 if (!isset($_REQUEST['get_menu_id'])) {
-                  echo'<button class="btn btn-success" type="submit" name="btn_add_menu"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Menu</button>';
+                  echo'<button class="btn btn-success" type="submit" name="btn_add_menu"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Menu</button>
+                    <a class="btn btn-danger" type="submit" href="manage_menu.php"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+                  ';
                 }
                 else {
-                  echo'<button class="btn btn-warning" type="submit" name="btn_edit_menu"><i class="fa fa-fw fa-lg fa-check-circle"></i>Edit Menu</button>';
+                  echo'<button class="btn btn-warning" type="submit" name="btn_edit_menu"><i class="fa fa-fw fa-lg fa-check-circle"></i>Edit Menu</button>
+                    <a class="btn btn-danger" type="submit" href="manage_menu.php"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+                  ';
                 }
               ?>
             </div>

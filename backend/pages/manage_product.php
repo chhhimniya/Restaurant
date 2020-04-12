@@ -14,12 +14,14 @@
         unlink("images/products/".$del_img['item_image']);
         $brand_delete="DELETE FROM item WHERE item_id=$item_del_id";
         if ($conn->query($brand_delete)===TRUE) {
-            $message_delete='<div class="alert alert-success alert-dismissible fade show">
+            $message_delete='<div class="alert alert-success alert-dismissible fade show" id=
+            "vsFadeOff">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong><i class="fa fa-check-circle"></i></strong>Your data  has been deleted</div>';
             }
             else {
-                $message_delete='<div class="alert alert-danger alert-dismissible fade show">
+                $message_delete='<div class="alert alert-danger alert-dismissible fade show" id=
+            "vsFadeOff">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong><i class="fa fa-times"></i></strong>Your data  has not been deleted</div>'.$conn->error;
             }       
@@ -32,7 +34,11 @@
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#">Manage Product</a></li>
+          <li class="breadcrumb-item">
+
+           <button type="button" onclick="printJS('sampleTable', 'php')">
+              Print Form
+           </button></li>
         </ul>
       </div>
       <div class="tile">

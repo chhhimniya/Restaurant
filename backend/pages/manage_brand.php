@@ -9,12 +9,12 @@
         unlink("images/brands/".$del_img['brand_logo']);
         $brand_delete="DELETE FROM brand WHERE brand_id=$brand_del_id";
         if ($conn->query($brand_delete)===TRUE) {
-            $message_delete='<div class="alert alert-success alert-dismissible fade show">
+            $message_delete='<div class="alert alert-success alert-dismissible fade show " id="brand">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong><i class="fa fa-check-circle"></i></strong>Your data  has been deleted</div>';
             }
             else {
-                $message_delete='<div class="alert alert-danger alert-dismissible fade show">
+                $message_delete='<div class="alert alert-danger alert-dismissible fade show" id="brand">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong><i class="fa fa-times"></i></strong>Your data  has not been deleted</div>';
             }       
