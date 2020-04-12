@@ -49,13 +49,13 @@ include '../backend/pages/conn.php';
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about" class="page-scroll">Home</a>
+        <li><a href="index.php" class="page-scroll">Home</a>
         </li>
         <?php
-        $select_menu="SELECT*FROM menu_item ORDER BY menu_item_order DESC";
+        $select_menu="SELECT*FROM menu_item ORDER BY menu_item_order asc";
         $result=$conn->query($select_menu);
         while ($row=$result->fetch_assoc()) {
-          echo '<li><a href="" ">'.$row['menu_item_name'].'</a></li>';
+          echo '<li><a href="pages.php?get_page_menu_id='.$row['menu_item_id'].'">'.$row['menu_item_name'].'</a></li>';
         }
         ?>
       </ul>

@@ -20,7 +20,7 @@
             if (isset($_REQUEST['btn_add_content'])) {
                   $content_title=$_REQUEST['content_title'];
                   $content_menu=$_REQUEST["content_menu"];
-                  $content_description=$_REQUEST["content_description"];
+                  $content_description=$_REQUEST["detail"];
                   $content_order=$_REQUEST["content_order"];
                 if (empty($content_title)) {
                     $msg_content_title="Content title is required";
@@ -32,7 +32,7 @@
                     $msg_content_description="Content Description is required";
                 }
                 if (empty($content_order)) {
-                    $msg_content_category="Content Order is required";
+                    $msg_content_order="Content Order is required";
                 }
                 else {
                     $insert_content=mysqli_query($conn,"INSERT INTO content(content_title,content_menu,content_description,content_order) VALUES('$content_title','$content_menu','$content_description','$content_order')");
@@ -57,7 +57,7 @@
                 if (isset($_REQUEST['btn_edit_content'])) {
                     $content_title=$_REQUEST['content_title'];
                     $content_menu=$_REQUEST["content_menu"];
-                    $content_description=$_REQUEST["content_description"];
+                    $content_description=$_REQUEST["detail"];
                     $content_order=$_REQUEST["content_order"];
                     $update_content=mysqli_query($conn,"UPDATE content SET content_title='$content_title',content_menu='$content_menu',content_description='$content_description',content_order='$content_order' WHERE content_id=$get_content_id");
                   if ($update_content==TRUE) {
@@ -84,7 +84,7 @@
             <?php
             echo $message_content;
             ?>
-            <h3 class="tile-title">Add Menu</h3>
+            <h3 class="tile-title">Add Content</h3>
             <div class="tile-body">
               <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
@@ -101,7 +101,7 @@
                   <select class="form-control" placeholder="Content Category" name="content_menu">
                    <option>-- Choose Menu --</option>
                     <?php
-                      $cate_content_sql="SELECT*FROM menu_item";
+                      $cate_content_sql="SELECT*FROM menu_item order by menu_item_name asc";
                       $result=$conn->query($cate_content_sql);
                       while ($row=$result->fetch_assoc()) {
                         if ($row['menu_item_id']==$content_menu) {
@@ -120,14 +120,6 @@
                   </select>
                   <?php echo "<p class='note'>".$msg_content_category."</p>";?>
                 </div>
-                 <div class="form-group">
-                  <label class="control-label">Content Order</label>
-                  <textarea class="form-control" placeholder="Content Description" name="content_description"
-                  value="<?php
-                      echo $rowselect['content_description'];
-                  ?>"
-                  </textarea>
-                  >
                   <?php echo "<p class='note'>".$msg_content_order."</p>";?>
                 </div>
                 <div class="form-group">
@@ -139,6 +131,15 @@
                   >
                   <?php echo "<p class='note'>".$msg_content_order."</p>";?>
                 </div>
+                <div class="form-group">
+                  <label class="control-label">Content Order</label>
+                  <textarea class="form-control" placeholder="Content Description" name="detail"
+                   >
+                   <?php
+                      echo $rowselect['content_description'];
+                  ?>
+                  </textarea>
+                 
                 <div class="tile-footer">
               <?php
                 if (!isset($_REQUEST['get_content_id'])) {

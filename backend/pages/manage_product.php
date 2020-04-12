@@ -68,7 +68,7 @@
                         $select_item="SELECT*FROM item 
                         INNER JOIN cate_brand ON item.cate_brand_id=cate_brand.cate_brand_id
                         INNER JOIN category ON category.cate_id=cate_brand.cate_id 
-                        INNER JOIN brand ON brand.brand_id=cate_brand.brand_id
+                        INNER JOIN brand ON brand.brand_id=cate_brand.brand_id 
                         ";
                         $result=$conn->query($select_item);
                         $i=1;
@@ -140,6 +140,15 @@
                   </tbody>
                 </table>
               </div>
+                  <?php
+                  $breakfast_sql="SELECT*FROM item ";
+                  $result=$conn->query($breakfast_sql);
+                  while ($row=$result->fetch_assoc()) {
+                   echo '
+                  <img  src="images/products/'.$row['item_image'].'">
+                   ';
+                  }
+              ?>
            
           <!--Modal Delet staff-->
         <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -20,12 +20,12 @@
         $msg_name=$msg_persons=$msg_image=$message="";
           if (isset($_REQUEST['btn_add'])) {
       
-            $product_name=$_REQUEST['product_name'];
-             $product_price=$_REQUEST['product_price'];
-             $image=$_FILES['image']['name'];
+              $product_name=$_REQUEST['product_name'];
+              $product_price=$_REQUEST['product_price'];
+              $image=$_FILES['image']['name'];
               $imagetyp=$_FILES['image']['tmp_name'];
-            $detail=$_REQUEST['detail'];
-            $cate_brand_id=$_REQUEST['brand_name'];
+              $detail=$_REQUEST['detail'];
+              $cate_brand_id=$_REQUEST['brand_name'];
            
           //checking name
           if(empty($_POST['product_name']))
@@ -155,14 +155,15 @@
                   >
                   <?php echo "<p class='note'>".$msg_image."</p>";?>
                 </div>
-                <div class="form-group" >
-                <label class="control-label">Details</label>
-                  <textarea name="detail" cols="30" rows="6" class="form-control" placeholder="Detials" 
-                  value="<?php
+               
+                <div class="form-group">
+                  <label class="control-label">Details</label>
+                  <textarea class="form-control" placeholder="Content Description" name="detail"
+                   >
+                   <?php
                       echo $rowselect['item_detail'];
-                  ?>"
-                  ></textarea>
-                </div>
+                  ?>
+                  </textarea>
                 <div class="tile-footer">
               <?php
                 if (!isset($_REQUEST['get_product'])) {

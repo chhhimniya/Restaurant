@@ -49,7 +49,7 @@
             <li><a class="treeview-item" href="blank-page.html"><i class="icon fa fa-circle-o"></i>User</a></li>
             <li><a class="treeview-item" href="page-login.html"><i class="icon fa fa-circle-o"></i>Permission</a></li>
             <li><a class="treeview-item" href="page-lockscreen.html"><i class="icon fa fa-circle-o"></i>Invoice</a></li>
-            <li><a class="treeview-item" href="page-user.html"><i class="icon fa fa-circle-o"></i>Report</a></li>
+            <li><a class="treeview-item" href="manage_contact.php"><i class="icon fa fa-circle-o"></i>Contact</a></li>
           </ul>
         </li>
          <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Reporting</span><i class="treeview-indicator fa fa-angle-right"></i></a>

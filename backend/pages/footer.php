@@ -30,7 +30,7 @@
       $("#menu").slideUp(500);
       window.location.replace("manage_menu.php");
       });
-        CKEDITOR.replace( 'content_description' );
+        CKEDITOR.replace( 'detail' );
     </script>
   </body>
 </html>

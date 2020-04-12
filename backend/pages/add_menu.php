@@ -18,8 +18,8 @@
           <?php
           $msg_menu_name=$msg_menu_order=$message_menu=" ";
             if (isset($_REQUEST['btn_add_menu'])) {
-                 $menu_name=$_REQUEST['menu_name'];
-                $menu_order=$_REQUEST["menu_order"];
+                  $menu_name=$_REQUEST['menu_item_name'];
+                  $menu_order=$_REQUEST["menu_item_order"];
                 if (empty($menu_name)) {
                     $msg_menu_name="Menu name is require";
                 }
@@ -78,8 +78,8 @@
             <div class="tile-body">
               <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                  <label class="control-label">Menu Name</label>
-                  <input class="form-control" type="text" placeholder=" Price " name="menu_item_name"
+                  <label class="control-label">Menu Title</label>
+                  <input class="form-control" type="text" placeholder="Menu Title" name="menu_item_name"
                   value="<?php
                       echo $rowselect['menu_item_name'];
                   ?>"
@@ -88,7 +88,7 @@
                 </div>
                 <div class="form-group">
                   <label class="control-label">Menu Order</label>
-                  <input class="form-control" type="number" placeholder=" Price " name="menu_item_order"
+                  <input class="form-control" type="number" placeholder=" Menu Order " name="menu_item_order"
                   value="<?php
                       echo $rowselect['menu_item_order'];
                   ?>"

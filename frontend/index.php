@@ -119,7 +119,7 @@
         <ul class="cat">
           <li>
             <ol class="type">
-              <li><a href="#" data-filter="*" class="active">All</a></li>
+            <!--   <li><a href="#" data-filter="*" class="active">All</a></li> -->
               <li><a href="#" data-filter=".breakfast">Breakfast</a></li>
               <li><a href="#" data-filter=".lunch">Lunch</a></li>
               <li><a href="#" data-filter=".dinner">Dinner</a></li>
@@ -137,7 +137,8 @@
               <div class="hover-text">
                 <h4>Dish Name</h4>
               </div>
-              <img src="img/portfolio/01-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+             
+             </div>
           </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-4 dinner">
@@ -146,7 +147,15 @@
               <div class="hover-text">
                 <h4>Dish Name</h4>
               </div>
-              <img src="img/portfolio/02-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+            <?php
+                  $breakfast_sql="SELECT*FROM item ";
+                  $result=$conn->query($breakfast_sql);
+                  while ($row=$result->fetch_assoc()) {
+                   echo '
+                  <img  src="../backend/pages/images/products/'.$row['item_image'].'" class="img-responsive" alt="Project Title">
+                   ';
+                  }
+              ?> </a> </div>
           </div>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-4 breakfast">
@@ -284,6 +293,28 @@
     </div>
   </div>
 </div>
+
+<?php
+  $msg_content_title=$msg_content_category=$msg_content_description=$msg_content_order=$message_contact="";
+            if (isset($_REQUEST['btn_contact'])) {
+                 echo  $name=$_REQUEST['name'];
+                 echo $gmail=$_REQUEST["gmail"];
+                echo  $message=$_REQUEST["message"];
+                    $insert_contact=mysqli_query($conn,"INSERT INTO contact(name,gmail,message) VALUES('$name','$gmail','$message')");
+                    if ($insert_contact==TRUE) {
+                      $message_contact='<div class="alert alert-success alert-dismissible">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      <strong>Success</strong> Your message has been sent 
+                    </div>';
+                    }
+                    else{
+                      $message_contact='<div class="alert alert-danger alert-dismissible">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      <strong>Failed</strong>Your message has not been sent
+                    </div>'.$conn->error;
+                    }   
+            }
+?>
 <!-- Call Reservation Section -->
 <div id="call-reservation" class="text-center">
   <div class="container">
@@ -299,27 +330,27 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed.</p>
     </div>
     <div class="col-md-10 col-md-offset-1">
-      <form name="sentMessage" id="contactForm" novalidate>
+      <form novalidate method="post">
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <input type="text" id="name" class="form-control" placeholder="Name" required="required">
+              <input type="text"  class="form-control" placeholder="Name" required="required">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <input type="email" id="email" class="form-control" placeholder="Email" required="required">
+              <input type="email"  class="form-control" placeholder="Email" required="required">
               <p class="help-block text-danger"></p>
             </div>
           </div>
         </div>
         <div class="form-group">
-          <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required></textarea>
+          <textarea name="message"  class="form-control" rows="4" placeholder="Message" required></textarea>
           <p class="help-block text-danger"></p>
         </div>
         <div id="success"></div>
-        <button type="submit" class="btn btn-custom btn-lg">Send Message</button>
+        <button type="submit" class="btn btn-custom btn-lg" name="btn_contact">Send Message</button>
       </form>
     </div>
   </div>

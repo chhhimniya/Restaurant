@@ -37,6 +37,7 @@
                 <table class="table table-hover table-bordered" id="sampleTable">
                   <thead>
                     <tr>
+                      <th>No</th>
                       <th>Title</th>
                       <th>Menu</th>
                       <th>Description</th>
@@ -48,12 +49,15 @@
                   <?php
                         $select_item="SELECT*FROM content INNER JOIN menu_item on content.content_menu=menu_item.menu_item_id";
                         $result=$conn->query($select_item);
+                        $i=1;
                         while ($row=$result->fetch_assoc()) {
+
                            echo' <tr>
+                           <td>'.$i.'</td>
                            <td>'.$row['content_title'].'</td>
                            <td>'.$row['menu_item_name'].'</td>
-                           <td>'.$row['content_description'].'</td>
                            <td>'.$row['content_order'].'</td>
+                            <td>'.$row['content_description'].'</td>
                            <td class="text-center ">
                            <div class="btn-group mt-3">
                               <a href="add_content.php?get_content_id='.$row['content_id'].'"  class="btn btn-success">Edit</a>
@@ -62,6 +66,7 @@
                            </div>
                        </td>
                          </tr> ';
+                         $i++;
                         }
                     ?>
                   </tbody>
