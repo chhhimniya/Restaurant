@@ -58,8 +58,10 @@
                            <td class="text-center"><img  src="images/brands/'.$row['brand_logo'].'" class="img-thumbnail" width="60" height="60"></td>
                            <td>'.$row['brand_order'].'</td>
                            <td>
-                           <a href="add_brand.php?get_brand_id='.$row['brand_id'].'"  class="btn btn-success">Edit</a>
-                           <button style="cursor:pointer;" class="btn btn-danger" data-href="manage_brand.php?brand_del_id='.$row['brand_id'].'" data-toggle="modal" data-target="#confirm-delete">Delete</button>
+                          <div class="btn-group">
+                          <a href="add_brand.php?get_brand_id='.$row['brand_id'].'"  class="btn btn-success">Edit</a>
+                          <button style="cursor:pointer;" class="btn btn-danger" data-href="manage_brand.php?brand_del_id='.$row['brand_id'].'" data-toggle="modal" data-target="#confirm-delete">Delete</button>
+                          </div>
                       </td>
                          </tr> ';
                          $i++;

@@ -83,9 +83,10 @@
                             <td class="text-center"><img  src="images/products/'.$row['item_image'].'" class="img-thumbnail" width="80" height="60"></td>
                             <td>'.$row['item_detail'].'</td>
                             <td>
+                            <div class="btn-group mt-3">
                             <a href="add_product.php?get_product='.$row['item_id'].'&get_cate_id='.$row['cate_id'].'"  class="btn btn-success">Edit</a>
-                            
                             <button style="cursor:pointer;" class="btn btn-danger " data-href="manage_product.php?item_del_id='.$row['item_id'].'" data-toggle="modal" data-target="#confirm-delete">Delete</button>
+                            </div>
                           </td>
                           </tr> ';
                           $i++;
@@ -140,15 +141,7 @@
                   </tbody>
                 </table>
               </div>
-                  <?php
-                  $breakfast_sql="SELECT*FROM item ";
-                  $result=$conn->query($breakfast_sql);
-                  while ($row=$result->fetch_assoc()) {
-                   echo '
-                  <img  src="images/products/'.$row['item_image'].'">
-                   ';
-                  }
-              ?>
+                 
            
           <!--Modal Delet staff-->
         <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

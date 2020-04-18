@@ -13,6 +13,7 @@
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Fontend</span><i class="treeview-indicator fa fa-angle-right"></i></a>
          
           <ul class="treeview-menu">
+            <li><a class="treeview-item" href="manage_homepage.php"><i class="icon fa fa-circle-o"></i>HomePage</a></li>
             <li><a class="treeview-item" href="manage_menu.php"><i class="icon fa fa-circle-o"></i>Menu</a></li>
             <li><a class="treeview-item" href="manage_content.php"><i class="icon fa fa-circle-o"></i>Conent</a></li>
           </ul>
@@ -23,6 +24,7 @@
             <li><a class="treeview-item" href="manage_expense.php"><i class="icon fa fa-circle-o"></i>Manage Expense</a></li>
           </ul>
         </li>
+        <li><a class="treeview-item" href="manage_chef.php"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Manage Chef</span></a></li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Product</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li>
