@@ -34,11 +34,7 @@
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item">
-
-           <button type="button" onclick="printJS('sampleTable', 'php')">
-              Print Form
-           </button></li>
+          <li class="breadcrumb-item"></li>
         </ul>
       </div>
       <div class="tile">

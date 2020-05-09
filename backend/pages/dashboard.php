@@ -8,7 +8,6 @@
       <div class="app-title">
         <div>
           <h1><i class="fa fa-dashboard"></i> Dashboard</h1>
-          <p>A free and open source Bootstrap 4 admin template</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
@@ -19,10 +18,10 @@
         <div class="col-md-6 col-lg-3">
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
             <div class="info">
-              <h2>Users</h2>
+              <h2>Chefs</h2>
                <h3>
                  <?php
-                    $query = "SELECT*FROM admin"; 
+                    $query = "SELECT*FROM chef"; 
       
                 // Execute the query and store the result set 
                 $result = mysqli_query($conn, $query); 

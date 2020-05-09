@@ -24,10 +24,10 @@
                 </a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link" href="about.php">About Us</a>
+                <a class="nav-link" href="about.php">Our Chef Members</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="products.php">Our Menu</a>
+                <a class="nav-link" href="products.php">Our Products</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="contact.php">Contact Us</a>
