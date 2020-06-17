@@ -1,0 +1,1 @@
+To create a new branch, to work from without affecting the master branch, type the following (spaces won’t be recognized in the branch name, so you will need to use a hyphen or underscore):test
